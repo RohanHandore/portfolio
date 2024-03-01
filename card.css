@@ -22,6 +22,7 @@ a {
     width: 10px;
     height: 10px;
 }
+
 .card-list::-webkit-scrollbar-thumb {
     background: #201c29;
     border-radius: 10px;
@@ -50,9 +51,6 @@ a {
     position: relative;
 }
 
-.card:focus-within~.card, .card:hover~.card {
-    transform: translateX(130px);
-}
 
 .card:hover {
     transform: translateY(-1rem);
@@ -61,7 +59,6 @@ a {
 .card:not(:first-child) {
     margin-left: -130px;
 }
-
 
 .card-header {
     margin-bottom: auto;
@@ -165,9 +162,39 @@ a {
     text-shadow: none;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    -webkit-box-decoration-break: clone;
+    /* -webkit-box-decoration-break: clone; */
     background-clip: text;
     border-color: white;
 }
 
+@media screen and (max-width: 767px) {
+    .card-list {
+        padding: 1rem;
+        overflow-x: auto;
+    }
 
+    .card {
+        width: 100%;
+        margin-left: 0;
+        transform: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .card:not(:first-child) {
+        margin-left: 0;
+    }
+
+    .tags a {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .card-list {
+        padding: 2rem;
+    }
+}
